@@ -27,7 +27,8 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 @bobSecondary ->> @aliceSecondary: auth-success
 @aliceSecondary ->> @bobSecondary: notify: Hello Bob,how are you?
 @bobSecondary ->> @bobPhone: Message from @alice:Hello Bob,how are you?
-  
+
+'''
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
 <!--
