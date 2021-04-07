@@ -1,4 +1,4 @@
-### Hi there 👋
+### Hi there I'm @colin👋
 ## Work
  In mid 2019 together with three friends we started The @ Company, our plan to change the world through a new Internet protocol. It was a crazy idea, we had no code just a simple concept, "what is the simplest way to assert an identity on the internet?". The answer a simple string, what we call an @sign now, where the owner can mange their own data behind the @sign and allow others to access it under their control.
   We started writing demo code in Dart and found it perfect for having a single code base across, x86, ARM and ARM64, as we wanted our protocol to run natively on everything from lightbulbs to cloud servers. 
@@ -32,6 +32,9 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
 <!--
 **cconstab/cconstab** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+
+##About me
+Check out my [@colin](https://atsign.directory/@colin) page
 
 Here are some ideas to get you started:
 
