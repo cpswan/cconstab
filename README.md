@@ -10,26 +10,23 @@
 ## The @ Protocol
 ```mermaid
 sequenceDiagram
-@alice-phone ->> @alice-secondary: @bob :Hello Bob, how are you?
-@alice-secondary ->> root: lookup @bob
-root ->> @alice-secondary: @bob-secondary <DNS>:<PORT>
-@alice-secondary ->> @bob-secondary : From:@alice:
-Note left of @alice-secondary: Connection made over TLS<br/>to <DNS>:<PORT><br/>using server SSL cert<br/>as a client cert.
+@alicePhone ->> @aliceSecondary: @bob :Hello Bob, how are you?
+@aliceSecondary ->> root: lookup @bob
+root ->> @aliceSecondary: @bobSecondary <DNS>:<PORT>
+@aliceSecondary ->> @bobSecondary : From:@alice:
+Note left of @aliceSecondary: Connection made over TLS<br/>to <DNS>:<PORT><br/>using server SSL cert<br/>as a client cert.
 
-Note right of @bob-secondary: @bob creates a random<br/> location & nonce
-@bob-secondary ->> @alice-secondary: Prove you are @alice _<location>@alice:<nonce>
-Note left of @alice-secondary: signed nonce place in <br/>_<location>@alice
-@alice-secondary ->> @bob-secondary: pol (proof of life)
-@bob-secondary ->> root: lookup @alice
-root ->> @bob-secondary : @alice-secondary <DNS>:<PORT>
-@bob-secondary ->> @alice-secondary: lookup:_<location>
-@alice-secondary ->> @bob-secondary: <nonce> and signed<nonce>
-@bob-secondary ->> @alice-secondary: auth-success
-@alice-secondary ->> @bob-secondary: notify: Hello Bob,how are you?
-@bob-secondary ->> @bob-phone: Message from @alice:Hello Bob,how are you?
-
-
-```
+Note right of @bobSecondary: @bob creates a random<br/> location & nonce
+@bobSecondary ->> @aliceSecondary: Prove you are @alice _<location>@alice:<nonce>
+Note left of @aliceSecondary: signed nonce place in <br/>_<location>@alice
+@aliceSecondary ->> @bobSecondary: pol (proof of life)
+@bobSecondary ->> root: lookup @alice
+root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
+@bobSecondary ->> @aliceSecondary: lookup:_<location>
+@aliceSecondary ->> @bobSecondary: <nonce> and signed<nonce>
+@bobSecondary ->> @aliceSecondary: auth-success
+@aliceSecondary ->> @bobSecondary: notify: Hello Bob,how are you?
+@bobSecondary ->> @bobPhone: Message from @alice:Hello Bob,how are you?
   
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
