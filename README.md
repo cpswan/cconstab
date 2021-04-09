@@ -12,6 +12,11 @@ Overview of the interactions.
 For a nice layout use the mermaid [plugin](https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe)
 ```mermaid
 sequenceDiagram
+participant @alicePhone
+participant @aliceSecondary
+participant root
+participant @bobSecondary
+participant @bobPhone
 @alicePhone ->> @aliceSecondary: publicKey
 Note left of @alicePhone: RSAkeyPair<br/>Generated
 @bobPhone ->> @bobSecondary: publicKey
