@@ -8,6 +8,7 @@
   The SDK and underlying @platform allows developers to produce end to end encrypted applications, that need no infrastructure for the developer to manage or deploy.
   We have of course open sourced everything and it can be found [here](https://github.com/atsign-foundation), along with our [dev site](https://atsign.dev) and our [website](https://atsign.com) and registrar site for @signs, which are free or paid.
 ## The @ Protocol
+Overview of the interactions
 For a nice layout use the mermaid [plugin](https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe)
 ```mermaid
 sequenceDiagram
@@ -23,7 +24,6 @@ Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey used to encryp
 root ->> @aliceSecondary: @bobSecondary <DNS>:<PORT>
 @aliceSecondary ->> @bobSecondary : From:@alice:
 Note left of @aliceSecondary: Connection made over TLS<br/>to <DNS>:<PORT><br/>using server SSL cert<br/>as a client cert.
-
 Note right of @bobSecondary: @bob creates a random<br/> location & nonce
 @bobSecondary ->> @aliceSecondary: Prove you are @alice _<location>@alice:<nonce>
 Note left of @aliceSecondary: signed nonce place in <br/>_<location>@alice
@@ -36,7 +36,7 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 @aliceSecondary ->> @bobSecondary: notify: encrpted "Hello Bob,how are you?"
 @bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob,how are you?"
 @bobPhone ->> @bobSecondary : lookup publickey@alice
-@bobSecondary ->> gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
+@bobSecondary ->> @bobPhone: Gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
 Note right of @bobPhone: Decrypts AESkey with RSAprivateKey@bob<br/> then uses AESkey to decrypt then display message 
 ```
 ## History
