@@ -11,7 +11,14 @@
 For a nice layout use the mermaid [plugin](https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe)
 ```mermaid
 sequenceDiagram
-@alicePhone ->> @aliceSecondary: @bob :Hello Bob, how are you?
+@alicePhone ->> @aliceSecondary: publicKey
+Note left of @alicePhone: RSAkeyPair Generated
+@bobPhone ->> @bobSecondary: publicKey
+Note right of @bobPhone: RSAkeyPair Generated
+@alicePhone ->> @aliceSecondary: lookup:publicKey@bob
+@aliceSecondary ->> @alicePhone: gets publicKey@bob and returns it to @alicePhone
+@alicePhone ->> @aliceSecondary: @bob :Encrypted message "Hello Bob, how are you?" + Encrypted AESkey;
+Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey used to encrypt AESkey
 @aliceSecondary ->> root: lookup @bob
 root ->> @aliceSecondary: @bobSecondary <DNS>:<PORT>
 @aliceSecondary ->> @bobSecondary : From:@alice:
@@ -26,8 +33,11 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 @bobSecondary ->> @aliceSecondary: lookup:_<location>
 @aliceSecondary ->> @bobSecondary: <nonce> and signed<nonce>
 @bobSecondary ->> @aliceSecondary: auth-success
-@aliceSecondary ->> @bobSecondary: notify: Hello Bob,how are you?
-@bobSecondary ->> @bobPhone: Message from @alice:Hello Bob,how are you?
+@aliceSecondary ->> @bobSecondary: notify: encrpted "Hello Bob,how are you?"
+@bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob,how are you?"
+@bobPhone ->> @bobSecondary : lookup publickey@alice
+@bobSecondary ->> gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
+Note right of @bobPhone: Decrypts AESkey with RSAprivateKey@bob<br/> then uses AESkey to decrypt then display message 
 ```
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
