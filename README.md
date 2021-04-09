@@ -13,18 +13,18 @@ For a nice layout use the mermaid [plugin](https://chrome.google.com/webstore/de
 ```mermaid
 sequenceDiagram
 @alicePhone ->> @aliceSecondary: publicKey
-Note left of @alicePhone: RSAkeyPair Generated
+Note left of @alicePhone: RSAkeyPair<br/>Generated
 @bobPhone ->> @bobSecondary: publicKey
-Note right of @bobPhone: RSAkeyPair Generated
+Note right of @bobPhone: RSAkeyPair<br/>Generated
 @alicePhone ->> @aliceSecondary: lookup:publicKey@bob
 @aliceSecondary ->> @alicePhone: gets publicKey@bob and returns it to @alicePhone
 @alicePhone ->> @aliceSecondary: @bob :Encrypted message "Hello Bob, how are you?" + Encrypted AESkey;
-Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey<br/>used to encrypt AESkey
+Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey<br/>used to encrypt<br/>AESkey
 @aliceSecondary ->> root: lookup @bob
 root ->> @aliceSecondary: @bobSecondary <DNS>:<PORT>
 @aliceSecondary ->> @bobSecondary : From:@alice:
-Note left of @aliceSecondary: Connection made over TLS<br/>to <DNS>:<PORT><br/>using server SSL cert<br/>as a client cert.
-Note right of @bobSecondary: @bob creates a random<br/> location & nonce
+Note left of @aliceSecondary: Connection made<br/>over TLS<br/>to <DNS>:<PORT><br/>using server SSL cert<br/>as a client cert.
+Note right of @bobSecondary: @bob creates a<br/>random<br/>location & nonce
 @bobSecondary ->> @aliceSecondary: Prove you are @alice _<location>@alice:<nonce>
 Note left of @aliceSecondary: signed nonce place in <br/>_<location>@alice
 @aliceSecondary ->> @bobSecondary: pol (proof of life)
@@ -37,7 +37,7 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 @bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob,how are you?"
 @bobPhone ->> @bobSecondary : lookup publickey@alice
 @bobSecondary ->> @bobPhone: Gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
-Note right of @bobPhone: Decrypts AESkey with RSAprivateKey@bob<br/> then uses AESkey to <br/>decrypt then <br/>display message 
+Note right of @bobPhone: Decrypts AESkey with<br/>RSAprivateKey@bob<br/> then uses AESkey to <br/>decrypt then <br/>display message 
 ```
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
