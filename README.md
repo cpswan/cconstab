@@ -19,7 +19,7 @@ Note right of @bobPhone: RSAkeyPair Generated
 @alicePhone ->> @aliceSecondary: lookup:publicKey@bob
 @aliceSecondary ->> @alicePhone: gets publicKey@bob and returns it to @alicePhone
 @alicePhone ->> @aliceSecondary: @bob :Encrypted message "Hello Bob, how are you?" + Encrypted AESkey;
-Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey used to encrypt AESkey
+Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey<br/>used to encrypt AESkey
 @aliceSecondary ->> root: lookup @bob
 root ->> @aliceSecondary: @bobSecondary <DNS>:<PORT>
 @aliceSecondary ->> @bobSecondary : From:@alice:
@@ -37,7 +37,7 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 @bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob,how are you?"
 @bobPhone ->> @bobSecondary : lookup publickey@alice
 @bobSecondary ->> @bobPhone: Gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
-Note right of @bobPhone: Decrypts AESkey with RSAprivateKey@bob<br/> then uses AESkey to decrypt then display message 
+Note right of @bobPhone: Decrypts AESkey with RSAprivateKey@bob<br/> then uses AESkey to <br/>decrypt then <br/>display message 
 ```
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
