@@ -9,41 +9,9 @@
   We have of course open sourced everything and it can be found [here](https://github.com/atsign-foundation), along with our [dev site](https://atsign.dev) and our [website](https://atsign.com) and registrar site for @signs, which are free or paid.
 ## The @ Protocol
 Overview of the interactions.
-For a nice layout use the mermaid [plugin](https://chrome.google.com/webstore/detail/github-%20-mermaid/goiiopgdnkogdbjmncgedmgpoajilohe)
-```mermaid
-sequenceDiagram
-participant @alicePhone
-participant @aliceSecondary
-participant root
-participant @bobSecondary
-participant @bobPhone
-@alicePhone ->> @aliceSecondary: publicKey
-Note left of @alicePhone: RSAkeyPair<br/>Generated
-@bobPhone ->> @bobSecondary: publicKey
-Note right of @bobPhone: RSAkeyPair<br/>Generated
-@alicePhone ->> @aliceSecondary: lookup:publicKey@bob
-@aliceSecondary ->> @alicePhone: gets publicKey@bob and returns it to @alicePhone
-@alicePhone ->> @aliceSecondary: @bob :Encrypted message "Hello Bob, how are you?" + Encrypted AESkey;
-Note left of @alicePhone: AESkey Generated <br/> @bobRSApublicKey<br/>used to encrypt<br/>AESkey
-@aliceSecondary ->> root: lookup @bob
-root ->> @aliceSecondary: @bobSecondary <DNS>:<PORT>
-@aliceSecondary ->> @bobSecondary : From:@alice:
-Note left of @aliceSecondary: Connection made<br/>over TLS<br/>to <DNS>:<PORT><br/>using server SSL cert<br/>as a client cert.
-Note right of @bobSecondary: @bob creates a<br/>random<br/>location & nonce
-@bobSecondary ->> @aliceSecondary: Prove you are @alice _<location>@alice:<nonce>
-Note left of @aliceSecondary: signed nonce place in <br/>_<location>@alice
-@aliceSecondary ->> @bobSecondary: pol (proof of life)
-@bobSecondary ->> root: lookup @alice
-root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
-@bobSecondary ->> @aliceSecondary: lookup:_<location>
-@aliceSecondary ->> @bobSecondary: <nonce> and signed<nonce>
-@bobSecondary ->> @aliceSecondary: auth-success
-@aliceSecondary ->> @bobSecondary: notify: encrpted "Hello Bob,how are you?"
-@bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob,how are you?"
-@bobPhone ->> @bobSecondary : lookup publickey@alice
-@bobSecondary ->> @bobPhone: Gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
-Note right of @bobPhone: Decrypts AESkey with<br/>RSAprivateKey@bob<br/> then uses AESkey to <br/>decrypt then <br/>display message 
-```
+
+Placeholder for SVG
+
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
 <!--
