@@ -8,9 +8,9 @@
   The SDK and underlying @platform allows developers to produce end to end encrypted applications, that need no infrastructure for the developer to manage or deploy.
   We have of course open sourced everything and it can be found [here](https://github.com/atsign-foundation), along with our [dev site](https://atsign.dev) and our [website](https://atsign.com) and registrar site for @signs, which are free or paid.
 ## The @ Protocol
-Overview of the interactions.
+Overview of the interactions (Mermaid source [here](./overview.mermaid)).
 
-Placeholder for SVG
+![Mermaid Diagram of interactions](./overview-mermaid.svg)
 
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
