@@ -10,7 +10,7 @@
 ## The @ Protocol
 Overview of the interactions (Mermaid source [here](./overview.mermaid)).
 
-![Mermaid Diagram of interactions](./overview-mermaid.svg)
+<img src="./overview-mermaid.svg" width="100%" height="400">
 
 ## History
 My background is in large scale infrastructure, networking and security. My full history is detailed on [LinkedIn](https://www.linkedin.com/in/colinconstable/)
