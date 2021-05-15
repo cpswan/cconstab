@@ -26,7 +26,7 @@ root ->> @bobSecondary : @aliceSecondary <DNS>:<PORT>
 @aliceSecondary ->> @bobSecondary: <nonce> and signed<nonce>
 @bobSecondary ->> @aliceSecondary: auth-success
 @aliceSecondary ->> @bobSecondary: notify: encrpted "Hello Bob,how are you?"
-@bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob,how are you?"
+@bobSecondary ->> @bobPhone: notify:message from @alice:encrypted"Hello Bob, how are you?"
 @bobPhone ->> @bobSecondary : lookup publickey@alice
 @bobSecondary ->> @bobPhone: Gets publicKey@alice from @aliceSecondary and returns it to @bobPhone
 Note right of @bobPhone: Decrypts AESkey with<br/>RSAprivateKey@bob<br/> then uses AESkey to <br/>decrypt then <br/>display message 
